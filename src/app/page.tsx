@@ -11,7 +11,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-
 export default function Home() {
 
   const [startDate, setStartDate] = useState('')
@@ -55,6 +54,10 @@ export default function Home() {
 
     if (start.diff(today, 'day') < 3) {
       setErr('การลากิจต้องลาล่วงหน้าอย่างน้อย 3 วัน')
+      return
+    }
+    if ((startDate && endDate) === '') {
+      setErr('กรุณาเลือกวันลาให้ครบ')
       return
     }
 
